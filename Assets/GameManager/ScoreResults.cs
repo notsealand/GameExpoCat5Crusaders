@@ -13,8 +13,7 @@ public class ScoreResults : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameMaster = GameObject.Find("GameMaster");
-        elapsedScore = Random.Range(1, 101);
+        elapsedScore = gameMaster.GetComponent<GameMaster>().elapsedScore;
     }
 
     // Update is called once per frame

@@ -13,6 +13,7 @@ public class GameMaster : NetworkComponent
     public GameObject P4Start;
     public GameObject ResultsPanel;
     public Vector3 SpawnPosition;
+    public int elapsedScore;
     public override void HandleMessage(string flag, string value)
     {
         if (flag == "GAMESTART" && IsClient){
@@ -79,7 +80,7 @@ public class GameMaster : NetworkComponent
                         SpawnPosition = P4Start.transform.position;
                         break;
                 }                
-                MyCore.NetCreateObject(n.CharSelected, n.Owner, this.transform.position + SpawnPosition, Quaternion.identity);
+                MyCore.NetCreateObject(n.CharSelected, n.Owner, SpawnPosition, Quaternion.identity);
 			}
 
             SendUpdate("GAMESTART", "1");
@@ -97,7 +98,7 @@ public class GameMaster : NetworkComponent
     // Start is called before the first frame update
     void Start()
     {
-        
+        elapsedScore = Random.Range(1, 101);
     }
 
     // Update is called once per frame
