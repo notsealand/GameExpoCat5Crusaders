@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Enemies&Items.meta
 guid: be7d3d9364e5e1f4db4e6fff818ab83d
+========
+guid: 16c0cfdde5af9db4c849a7dbc0cb8058
+>>>>>>>> ca306f36350c8df81838c5f339fe8a0e25113670:Assets/NetworkCore_5_5.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
