@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Results
+  - Item
+  - WallH
+  - WallV
   layers:
   - Default
   - TransparentFX

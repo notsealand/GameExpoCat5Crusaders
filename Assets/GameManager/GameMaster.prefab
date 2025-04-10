@@ -78,6 +78,8 @@ MonoBehaviour:
   ResultsPanel: {fileID: 1305526392640718610}
   SpawnPosition: {x: 0, y: 0, z: 0}
   elapsedScore: 0
+  elapsedTime: 0
+  item: {fileID: 8336334971081246659, guid: ee5dc9c49adf70d4c80c8d137e495019, type: 3}
 --- !u!1001 &8057094149926043364
 PrefabInstance:
   m_ObjectHideFlags: 0
