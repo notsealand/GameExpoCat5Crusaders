@@ -14,6 +14,7 @@ public class GameMaster : NetworkComponent
     public GameObject ResultsPanel;
     public Vector3 SpawnPosition;
     public int elapsedScore;
+    public int elapsedTime = 0;
     public override void HandleMessage(string flag, string value)
     {
         if (flag == "GAMESTART" && IsClient){
@@ -85,11 +86,30 @@ public class GameMaster : NetworkComponent
 
             SendUpdate("GAMESTART", "1");
             MyCore.NotifyGameStart();
-            yield return new WaitForSeconds(5);
-            GameEnded = true;
+            while(GameStarted && !GameEnded)
+            {
+                if (elapsedTime % 20 == 19)
+                {
+                    GameObject temp = MyCore.NetCreateObject(5, -1, new Vector3(0,0,0), this.transform.rotation);
+                }
+                if (elapsedTime % 20 == 14)
+                {
+                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(10,0,2), this.transform.rotation);
+                }
+                if (elapsedTime % 20 == 4)
+                {
+                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(-10,0,-2), this.transform.rotation);
+                }
+                yield return new WaitForSeconds(1);
+                elapsedTime++;
+                if (elapsedTime > 60)
+                {
+                    GameEnded = true;
+                }
+            }
             ResultsPanel.gameObject.SetActive(true);
             SendUpdate("GAMEEND", "1");
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(30);
             MyCore.UI_Quit();
         }
 
