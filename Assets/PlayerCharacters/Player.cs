@@ -84,12 +84,6 @@ public class Player : NetworkComponent
                 /*Item = GameObject.Find("Item");
                 Destroy(Item.gameObject);*/
                 break;
-            
-            case "DAMAGE":
-                Debug.Log("Lose Health");
-                /*Item = GameObject.Find("Item");
-                Destroy(Item.gameObject);*/
-                break;
                 
        }
     }
@@ -185,12 +179,6 @@ public class Player : NetworkComponent
             MyCore.NetDestroyObject(itemID);
             yield return new WaitForSeconds(5);
             Speed = Speed/2;
-        }
-
-        if(other.gameObject.tag == "Melee" && IsServer)
-        {
-            Debug.Log("Yeowch");
-            SendUpdate("DAMAGE", "-1");
         }
     }
 }

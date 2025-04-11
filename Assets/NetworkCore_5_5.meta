@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/NetworkCore_5_5.meta
 guid: 16c0cfdde5af9db4c849a7dbc0cb8058
+========
+guid: 7820dd2ed7e49034dbe212f2155fbb4d
+>>>>>>>> ca306f36350c8df81838c5f339fe8a0e25113670:Assets/NetworkCore_5_5/NetworkCore_5_5.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
