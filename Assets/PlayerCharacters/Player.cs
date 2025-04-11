@@ -13,6 +13,15 @@ public class Player : NetworkComponent
     public GameObject P2Start;
     public GameObject P3Start;
     public GameObject P4Start;
+    public GameObject Cannonball;
+    public int itemID;
+    public float LastX;
+    public float LastY;
+    public int health = 3;
+    public Rigidbody MyRig;
+    Vector3 yea = new Vector3(1,0,0);
+    float Speed = 4.0f;
+    bool reload = true;
 
     public override void HandleMessage(string flag, string value)
     {
@@ -69,6 +78,13 @@ public class Player : NetworkComponent
                     }
                 }
                 break;
+
+            case "SPEED":
+                Debug.Log("Speed up");
+                /*Item = GameObject.Find("Item");
+                Destroy(Item.gameObject);*/
+                break;
+                
        }
     }
 
@@ -114,7 +130,7 @@ public class Player : NetworkComponent
     // Start is called before the first frame update
     void Start()
     {
-        
+        MyRig = this.GetComponent<Rigidbody>();
     }
 
     public void Mover(InputAction.CallbackContext context)
@@ -146,6 +162,23 @@ public class Player : NetworkComponent
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsServer)
+        {
+            MyRig.velocity = new Vector3(LastX, MyRig.velocity.y, LastY) * Speed;
+        }
+    }
+
+    public IEnumerator OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Item" && IsServer)
+        {
+            Debug.Log("Collision With Item");
+            Speed = Speed*2;
+            SendUpdate("SPEED", "-1");
+            itemID = other.GetComponent<NetworkID>().NetId;
+            MyCore.NetDestroyObject(itemID);
+            yield return new WaitForSeconds(5);
+            Speed = Speed/2;
+        }
     }
 }
