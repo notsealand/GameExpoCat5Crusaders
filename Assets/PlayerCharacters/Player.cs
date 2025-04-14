@@ -26,6 +26,7 @@ public class Player : NetworkComponent
     bool reload = true;
     public GameObject player;
     public GameObject gameMaster;
+    public int netIDValue;
 
     public override void HandleMessage(string flag, string value)
     {
@@ -88,6 +89,19 @@ public class Player : NetworkComponent
                 /*Item = GameObject.Find("Item");
                 Destroy(Item.gameObject);*/
                 break;
+
+            case "HURT":
+                Debug.Log("Life Lost");
+                if(IsLocalPlayer)
+                {
+                    health--;
+                    if(health == 0)
+                    {
+                        MyCore.NetDestroyObject(netIDValue);
+                        Debug.Log("Dead");
+                    }
+                }
+                break;
                 
        }
     }
@@ -125,7 +139,6 @@ public class Player : NetworkComponent
                     if (Owner == n.Owner)
                     {
                         PName = n.PName;
-                        
                     }
                 }
 
@@ -210,7 +223,7 @@ public class Player : NetworkComponent
         if(gameMaster.GetComponent<GameMaster>().elapsedTime > 2 && other.gameObject.tag == "MELEE" && IsServer && other.GetComponent<Melee>().myPlayer != this.gameObject)
         {
             Debug.Log("Owch that hurt :(");
-            //damage
+            SendUpdate("HURT", "-1");
             other.gameObject.SetActive(false);
             yield return new WaitForSeconds(3);
             Debug.Log("Collision Finish");
