@@ -119,8 +119,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.67, y: 1.5, z: 6.51}
+  m_Center: {x: 0, y: 0.11, z: 2.4}
 --- !u!114 &5738537175877395094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   Speed: 4
   player: {fileID: 2310525998333230775}
   gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
+  netIDValue: 0
 --- !u!114 &8057378841675788873
 MonoBehaviour:
   m_ObjectHideFlags: 0
