@@ -82,7 +82,7 @@ public class GameMaster : NetworkComponent
                         break;
                 }                
                 MyCore.NetCreateObject(n.CharSelected, n.Owner, SpawnPosition, Quaternion.identity);
-                MyCore.NetCreateObject(7, -1, SpawnPosition, Quaternion.identity);
+                MyCore.NetCreateObject(9, -1, SpawnPosition, Quaternion.identity);
 			}
 
             SendUpdate("GAMESTART", "1");
