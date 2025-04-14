@@ -614,13 +614,14 @@ MonoBehaviour:
   DisconnectScreen: {fileID: 0}
   ObjectCounter: 0
   SpawnPrefab:
-  - {fileID: 1892459676105820298, guid: 075964247f2b8224ea67ccb2b818a989, type: 3}
   - {fileID: -8440245151616198406, guid: c98e43d944336ce439ca9b8bce0d5391, type: 3}
+  - {fileID: 1892459676105820298, guid: 075964247f2b8224ea67ccb2b818a989, type: 3}
   - {fileID: 8930493324438116620, guid: ac037bea4ee54a04bb76dbd8f1cc0919, type: 3}
   - {fileID: 7982431980720464003, guid: 5dd34353ad6b27546ab9c02c4ad9daca, type: 3}
   - {fileID: 3827750070175045293, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
   - {fileID: -7002744125159236173, guid: ee5dc9c49adf70d4c80c8d137e495019, type: 3}
   - {fileID: 2243379250025099068, guid: ef8a8ea358fbbea4a98478e38bc45f84, type: 3}
+  - {fileID: 9149251800677700981, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
   NetworkPlayerManager: {fileID: 8924587938452622135, guid: 6a56e5624ffec214faff8c1ff72e434c, type: 3}
   DefaultReturnScene: 0
 --- !u!4 &408156394

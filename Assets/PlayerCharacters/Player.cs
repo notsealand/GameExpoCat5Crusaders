@@ -24,6 +24,8 @@ public class Player : NetworkComponent
     Vector3 yea = new Vector3(1,0,0);
     public float Speed = 4.0f;
     bool reload = true;
+    public GameObject player;
+    public GameObject gameMaster;
 
     public override void HandleMessage(string flag, string value)
     {
@@ -92,7 +94,22 @@ public class Player : NetworkComponent
 
     public override void NetworkedStart()
     {
-    
+        if(IsServer)
+        {
+            GameObject[] meleeArray;
+            meleeArray = GameObject.FindGameObjectsWithTag("MELEE");
+            foreach (GameObject melee in meleeArray)
+            {    
+                if(melee.GetComponent<Melee>().myPlayer == null)
+                {
+                    melee.GetComponent<Melee>().myPlayer = player;
+                    player = null;
+                } else {
+                        
+                }
+            }
+            gameMaster = GameObject.FindGameObjectWithTag("Results");
+        }
     }
 
     public override IEnumerator SlowUpdate()
@@ -108,8 +125,12 @@ public class Player : NetworkComponent
                     if (Owner == n.Owner)
                     {
                         PName = n.PName;
+                        
                     }
                 }
+
+                
+                
 
                 if(IsDirty)
                 {
@@ -169,6 +190,7 @@ public class Player : NetworkComponent
             MyRig.velocity = new Vector3(LastX, MyRig.velocity.y, LastY) * Speed;
             PosX = MyRig.position.x;
             PosZ = MyRig.position.z;
+
         }
     }
 
@@ -183,6 +205,16 @@ public class Player : NetworkComponent
             MyCore.NetDestroyObject(itemID);
             yield return new WaitForSeconds(5);
             Speed = Speed/2;
+        }
+
+        if(gameMaster.GetComponent<GameMaster>().elapsedTime > 2 && other.gameObject.tag == "MELEE" && IsServer && other.GetComponent<Melee>().myPlayer != this.gameObject)
+        {
+            Debug.Log("Owch that hurt :(");
+            //damage
+            other.gameObject.SetActive(false);
+            yield return new WaitForSeconds(3);
+            Debug.Log("Collision Finish");
+            other.gameObject.SetActive(true);
         }
     }
 }

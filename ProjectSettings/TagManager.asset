@@ -8,6 +8,8 @@ TagManager:
   - Item
   - WallH
   - WallV
+  - Melee
+  - MELEE
   layers:
   - Default
   - TransparentFX

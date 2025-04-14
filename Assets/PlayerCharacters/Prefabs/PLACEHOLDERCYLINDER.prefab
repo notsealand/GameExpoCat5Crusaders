@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2823959235718104333}
   m_Layer: 0
   m_Name: PLACEHOLDERCYLINDER
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,8 +36,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4547985406991064378}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1595033411992465356
@@ -185,8 +184,14 @@ MonoBehaviour:
   itemID: 0
   LastX: 0
   LastY: 0
+  PosX: 0
+  PosZ: 0
   health: 3
   MyRig: {fileID: 0}
+  Speed: 4
+  melee: {fileID: 0}
+  player: {fileID: 3881572160717598106}
+  gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
 --- !u!114 &2658583137264368776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,69 +311,3 @@ MonoBehaviour:
   MyRig: {fileID: 0}
   UseOffsetVelocity: 1
   ClientRecv: 0
---- !u!1001 &1914308420413275591
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 4092395564322460120}
-    m_Modifications:
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2983808709931202807, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: parentPlayer
-      value: 
-      objectReference: {fileID: 3881572160717598106}
-    - target: {fileID: 6084352211833325662, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-      propertyPath: m_Name
-      value: Melee
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
---- !u!4 &4547985406991064378 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2705904696083177725, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
-  m_PrefabInstance: {fileID: 1914308420413275591}
-  m_PrefabAsset: {fileID: 0}

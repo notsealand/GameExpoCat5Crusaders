@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 3271476483789279264}
   - component: {fileID: 9149251800677700981}
   - component: {fileID: 2983808709931202807}
+  - component: {fileID: -6985631017108056401}
   m_Layer: 0
   m_Name: Melee
-  m_TagString: Melee
+  m_TagString: MELEE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,3 +173,24 @@ MonoBehaviour:
   IsDirty: 0
   melee: {fileID: 6084352211833325662}
   parentPlayer: {fileID: 0}
+  MyRig: {fileID: 0}
+--- !u!114 &-6985631017108056401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084352211833325662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34ca87a457962d459c49c36b9753ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Owner: -10
+  NetId: -10
+  IsInit: 0
+  IsLocalPlayer: 0
+  UseLobby: 0
+  UpdateFrequency: 0.1
+  MyCore: {fileID: 0}

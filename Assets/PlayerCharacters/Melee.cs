@@ -6,7 +6,7 @@ using NETWORK_ENGINE;
 public class Melee : NetworkComponent
 {
     public GameObject melee;
-    public GameObject parentPlayer;
+    public GameObject myPlayer;
     public Rigidbody MyRig;
 
     public override void HandleMessage(string flag, string value)
@@ -38,15 +38,16 @@ public class Melee : NetworkComponent
 
             if(IsServer)
             {
-                //parentPlayer = melee.GetComponentInParent<Transform>();
-                //Debug.Log(parentPlayer.ToString);
+                //myPlayer = melee.GetComponentInParent<Transform>();
+                //Debug.Log(myPlayer.ToString);
                 if(IsDirty)
                 {
                     IsDirty = false;
                 }
             }
+            yield return new WaitForSeconds(.1f);
         }
-        yield return new WaitForSeconds(.1f);
+        
     }
 
     // Start is called before the first frame update
@@ -58,19 +59,22 @@ public class Melee : NetworkComponent
     // Update is called once per frame
     void Update()
     {
-        MyRig.velocity = new Vector3(parentPlayer.GetComponent<Player>().LastX, MyRig.velocity.y, parentPlayer.GetComponent<Player>().LastY) * parentPlayer.GetComponent<Player>().Speed;
-        MyRig.position = new Vector3(parentPlayer.GetComponent<Player>().PosX + parentPlayer.GetComponent<Player>().LastX, 0, parentPlayer.GetComponent<Player>().PosZ + parentPlayer.GetComponent<Player>().LastY);
+        MyRig.velocity = new Vector3(myPlayer.GetComponent<Player>().LastX, MyRig.velocity.y, myPlayer.GetComponent<Player>().LastY) * myPlayer.GetComponent<Player>().Speed;
+        MyRig.position = new Vector3(myPlayer.GetComponent<Player>().PosX + myPlayer.GetComponent<Player>().LastX, 0, myPlayer.GetComponent<Player>().PosZ + myPlayer.GetComponent<Player>().LastY);
     }
 
-    public IEnumerator OnTriggerEnter(Collider other)
+    /*public IEnumerator OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player" && IsServer && other.gameObject != parentPlayer)
+        if(other.gameObject.tag == "Player" && IsServer && other.gameObject != myPlayer)
         {
             Debug.Log("Collision With Player");
             SendUpdate("GOTAHIT", "-1");
-            //melee.SetActive(false);
-            yield return new WaitForSeconds(20);
+            //private gameObject temp = myPlayer;
+            melee.SetActive(false);
+            yield return new WaitForSeconds(3);
+            Debug.Log("Collision Finish");
             melee.SetActive(true);
+            //myPlayer = temp;
         }
-    }
+    }*/
 }
