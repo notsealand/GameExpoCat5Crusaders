@@ -142,7 +142,7 @@ public class Player : NetworkComponent
         }
     }
 
-    /*public void Shoot(InputAction.CallbackContext context)
+    public void Shoot(InputAction.CallbackContext context)
     {
         if (IsServer)
         {
@@ -157,7 +157,7 @@ public class Player : NetworkComponent
             SendCommand("FIRE", "1");
             Debug.Log("baba");
         }
-    }*/
+    }
 
     // Update is called once per frame
     void Update()
