@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3129997145874586815}
   m_Layer: 0
   m_Name: PLACEHOLDERSPHERE
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,6 @@ MonoBehaviour:
   health: 3
   MyRig: {fileID: 0}
   Speed: 4
-  melee: {fileID: 0}
   player: {fileID: 8250932614098954288}
   gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
 --- !u!114 &-461208084854660890

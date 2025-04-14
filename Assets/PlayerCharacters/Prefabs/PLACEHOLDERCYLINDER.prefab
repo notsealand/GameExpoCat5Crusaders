@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2823959235718104333}
   m_Layer: 0
   m_Name: PLACEHOLDERCYLINDER
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +189,6 @@ MonoBehaviour:
   health: 3
   MyRig: {fileID: 0}
   Speed: 4
-  melee: {fileID: 0}
   player: {fileID: 3881572160717598106}
   gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
 --- !u!114 &2658583137264368776

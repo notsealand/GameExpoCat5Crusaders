@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7169379858529092837}
   m_Layer: 0
   m_Name: PLACEHOLDERCAPSULE
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +268,6 @@ MonoBehaviour:
   health: 3
   MyRig: {fileID: 0}
   Speed: 4
-  melee: {fileID: 0}
   player: {fileID: 2452165911487040100}
   gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
 --- !u!54 &263199907305682402
