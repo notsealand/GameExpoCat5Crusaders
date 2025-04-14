@@ -7,6 +7,7 @@ public class Melee : NetworkComponent
 {
     public GameObject melee;
     public GameObject parentPlayer;
+    public Rigidbody MyRig;
 
     public override void HandleMessage(string flag, string value)
     {
@@ -51,13 +52,14 @@ public class Melee : NetworkComponent
     // Start is called before the first frame update
     void Start()
     {
-        
+        MyRig = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        MyRig.velocity = new Vector3(parentPlayer.GetComponent<Player>().LastX, MyRig.velocity.y, parentPlayer.GetComponent<Player>().LastY) * parentPlayer.GetComponent<Player>().Speed;
+        MyRig.position = new Vector3(parentPlayer.GetComponent<Player>().PosX + parentPlayer.GetComponent<Player>().LastX, 0, parentPlayer.GetComponent<Player>().PosZ + parentPlayer.GetComponent<Player>().LastY);
     }
 
     public IEnumerator OnTriggerEnter(Collider other)

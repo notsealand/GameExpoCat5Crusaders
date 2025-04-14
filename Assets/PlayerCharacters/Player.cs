@@ -17,10 +17,12 @@ public class Player : NetworkComponent
     public int itemID;
     public float LastX;
     public float LastY;
+    public float PosX;
+    public float PosZ;
     public int health = 3;
     public Rigidbody MyRig;
     Vector3 yea = new Vector3(1,0,0);
-    float Speed = 4.0f;
+    public float Speed = 4.0f;
     bool reload = true;
 
     public override void HandleMessage(string flag, string value)
@@ -165,6 +167,8 @@ public class Player : NetworkComponent
         if (IsServer)
         {
             MyRig.velocity = new Vector3(LastX, MyRig.velocity.y, LastY) * Speed;
+            PosX = MyRig.position.x;
+            PosZ = MyRig.position.z;
         }
     }
 
