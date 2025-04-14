@@ -196,9 +196,9 @@ public class Player : NetworkComponent
 
     public IEnumerator OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Item" && IsServer)
+        if(other.gameObject.tag == "ItemSpeed" && IsServer)
         {
-            Debug.Log("Collision With Item");
+            Debug.Log("Collision With ItemSpeed");
             Speed = Speed*2;
             SendUpdate("SPEED", "-1");
             itemID = other.GetComponent<NetworkID>().NetId;

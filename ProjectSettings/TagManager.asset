@@ -9,7 +9,11 @@ TagManager:
   - WallH
   - WallV
   - Melee
+<<<<<<< Updated upstream
   - MELEE
+=======
+  - ItemSpeed
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

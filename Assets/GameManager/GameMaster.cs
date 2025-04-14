@@ -89,17 +89,28 @@ public class GameMaster : NetworkComponent
             MyCore.NotifyGameStart();
             while(GameStarted && !GameEnded)
             {
-                if (elapsedTime % 20 == 19)
+                if (elapsedTime % 20 == 19) //Spawns ItemSpeed
                 {
-                    GameObject temp = MyCore.NetCreateObject(5, -1, new Vector3(0,0,0), this.transform.rotation);
+                    Quaternion rotation = Quaternion.Euler(60f, 0f, 180f);
+                    GameObject temp = MyCore.NetCreateObject(5, -1, new Vector3(0,0,0), rotation);
+                }
+                if (elapsedTime % 20 == 19) //Spawns ItemHealth
+                {
+                    Quaternion rotation = Quaternion.Euler(-30f, 0f, 90f);
+                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(0, 2, 2), rotation);
+                }
+                if (elapsedTime % 20 == 19) //Spawns ItemReload
+                {
+                    Quaternion rotation = Quaternion.Euler(-30f, 0f, 90f);
+                    GameObject temp = MyCore.NetCreateObject(7, -1, new Vector3(0, -2, -2), rotation);
                 }
                 if (elapsedTime % 20 == 14)
                 {
-                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(10,0,2), this.transform.rotation);
+                    GameObject temp = MyCore.NetCreateObject(8, -1, new Vector3(10,0,2), this.transform.rotation);
                 }
                 if (elapsedTime % 20 == 4)
                 {
-                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(-10,0,-2), this.transform.rotation);
+                    GameObject temp = MyCore.NetCreateObject(8, -1, new Vector3(-10,0,-2), this.transform.rotation);
                 }
                 yield return new WaitForSeconds(1);
                 elapsedTime++;
