@@ -172,8 +172,9 @@ MonoBehaviour:
   MyId: {fileID: 0}
   IsDirty: 0
   melee: {fileID: 6084352211833325662}
-  parentPlayer: {fileID: 0}
+  myPlayer: {fileID: 0}
   MyRig: {fileID: 0}
+  gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
 --- !u!114 &-6985631017108056401
 MonoBehaviour:
   m_ObjectHideFlags: 0

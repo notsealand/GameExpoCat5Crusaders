@@ -234,7 +234,43 @@ public class Player : NetworkComponent
             if(health <= 0)
             {
                 score = gameMaster.GetComponent<GameMaster>().elapsedTime;
+                switch(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().Owner)
+                {
+                    case 0:
+                        gameMaster.GetComponent<GameMaster>().player1Score = score;
+                        break;
+                    case 1:
+                        gameMaster.GetComponent<GameMaster>().player2Score = score;
+                        break;
+                    case 2:
+                        gameMaster.GetComponent<GameMaster>().player3Score = score;
+                        break;
+                    case 3:
+                        gameMaster.GetComponent<GameMaster>().player4Score = score;
+                        break;
+                }
                 MyCore.NetDestroyObject(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().NetId);
+                gameMaster.GetComponent<GameMaster>().playerCount--;
+            }
+            if(gameMaster.GetComponent<GameMaster>().playerCount < 2)
+            {
+                score = gameMaster.GetComponent<GameMaster>().elapsedTime;
+                score = score + 10; //Winner bonus
+                switch(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().Owner)
+                {
+                    case 0:
+                        gameMaster.GetComponent<GameMaster>().player1Score = score;
+                        break;
+                    case 1:
+                        gameMaster.GetComponent<GameMaster>().player2Score = score;
+                        break;
+                    case 2:
+                        gameMaster.GetComponent<GameMaster>().player3Score = score;
+                        break;
+                    case 3:
+                        gameMaster.GetComponent<GameMaster>().player4Score = score;
+                        break;
+                }
             }
             yield return new WaitForSeconds(10);
             Debug.Log("Collision Finish");
@@ -249,8 +285,23 @@ public class Player : NetworkComponent
             if(health <= 0)
             {
                 score = gameMaster.GetComponent<GameMaster>().elapsedTime;
-                //send score and id to gamemaster?
+                switch(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().Owner)
+                {
+                    case 0:
+                        gameMaster.GetComponent<GameMaster>().player1Score = score;
+                        break;
+                    case 1:
+                        gameMaster.GetComponent<GameMaster>().player2Score = score;
+                        break;
+                    case 2:
+                        gameMaster.GetComponent<GameMaster>().player3Score = score;
+                        break;
+                    case 3:
+                        gameMaster.GetComponent<GameMaster>().player4Score = score;
+                        break;
+                }
                 MyCore.NetDestroyObject(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().NetId);
+                gameMaster.GetComponent<GameMaster>().playerCount--;
             }
         }
     }

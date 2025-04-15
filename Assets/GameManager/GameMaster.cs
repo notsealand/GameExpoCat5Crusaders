@@ -15,6 +15,11 @@ public class GameMaster : NetworkComponent
     public Vector3 SpawnPosition;
     public int elapsedScore;
     public int elapsedTime = 0;
+    public int playerCount;
+    public int player1Score;
+    public int player2Score;
+    public int player3Score;
+    public int player4Score;
     public override void HandleMessage(string flag, string value)
     {
         if (flag == "GAMESTART" && IsClient){
@@ -83,6 +88,7 @@ public class GameMaster : NetworkComponent
                 }                
                 MyCore.NetCreateObject(n.CharSelected, n.Owner, SpawnPosition, Quaternion.identity);
                 MyCore.NetCreateObject(9, -1, SpawnPosition, Quaternion.identity);
+                playerCount++;
 			}
 
             SendUpdate("GAMESTART", "1");
@@ -114,7 +120,7 @@ public class GameMaster : NetworkComponent
                 }
                 yield return new WaitForSeconds(1);
                 elapsedTime++;
-                if (elapsedTime > 60)
+                if (playerCount < 2)
                 {
                     GameEnded = true;
                 }

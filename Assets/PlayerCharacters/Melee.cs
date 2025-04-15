@@ -8,6 +8,7 @@ public class Melee : NetworkComponent
     public GameObject melee;
     public GameObject myPlayer;
     public Rigidbody MyRig;
+    public GameObject gameMaster;
 
     public override void HandleMessage(string flag, string value)
     {
@@ -64,6 +65,9 @@ public class Melee : NetworkComponent
             MyRig.velocity = new Vector3(myPlayer.GetComponent<Player>().LastX, MyRig.velocity.y, myPlayer.GetComponent<Player>().LastY) * myPlayer.GetComponent<Player>().Speed;
             MyRig.position = new Vector3(myPlayer.GetComponent<Player>().PosX + myPlayer.GetComponent<Player>().LastX, 0, myPlayer.GetComponent<Player>().PosZ + myPlayer.GetComponent<Player>().LastY);
             myPlayer.GetComponent<Player>().meleeReload = melee;
+        } else if (gameMaster.GetComponent<GameMaster>().elapsedTime > 2)
+        {
+            MyCore.NetDestroyObject(melee.GetComponent<NetworkID>().NetId);
         }
     }
         
