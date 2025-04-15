@@ -188,7 +188,9 @@ MonoBehaviour:
   MyRig: {fileID: 0}
   Speed: 4
   player: {fileID: 8250932614098954288}
+  playerButThisOneIsForGettingTheNetID: {fileID: 8250932614098954288}
   gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
+  netIDValue: 0
 --- !u!114 &-461208084854660890
 MonoBehaviour:
   m_ObjectHideFlags: 0

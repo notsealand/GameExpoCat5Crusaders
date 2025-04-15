@@ -97,12 +97,12 @@ public class GameMaster : NetworkComponent
                 if (elapsedTime % 20 == 19) //Spawns ItemHealth
                 {
                     Quaternion rotation = Quaternion.Euler(-30f, 0f, 90f);
-                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(0, 2, 2), rotation);
+                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(2, 0, 2), rotation);
                 }
                 if (elapsedTime % 20 == 19) //Spawns ItemReload
                 {
                     Quaternion rotation = Quaternion.Euler(-30f, 0f, 90f);
-                    GameObject temp = MyCore.NetCreateObject(7, -1, new Vector3(0, -2, -2), rotation);
+                    GameObject temp = MyCore.NetCreateObject(7, -1, new Vector3(-2, 0, -2), rotation);
                 }
                 if (elapsedTime % 20 == 14)
                 {

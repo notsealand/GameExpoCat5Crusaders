@@ -25,8 +25,11 @@ public class Player : NetworkComponent
     public float Speed = 4.0f;
     bool reload = true;
     public GameObject player;
+    public GameObject playerButThisOneIsForGettingTheNetID;
+    public GameObject meleeReload;
     public GameObject gameMaster;
     public int netIDValue;
+    public int score;
 
     public override void HandleMessage(string flag, string value)
     {
@@ -88,19 +91,6 @@ public class Player : NetworkComponent
                 Debug.Log("Speed up");
                 /*Item = GameObject.Find("Item");
                 Destroy(Item.gameObject);*/
-                break;
-
-            case "HURT":
-                Debug.Log("Life Lost");
-                if(IsLocalPlayer)
-                {
-                    health--;
-                    if(health == 0)
-                    {
-                        MyCore.NetDestroyObject(netIDValue);
-                        Debug.Log("Dead");
-                    }
-                }
                 break;
                 
        }
@@ -220,14 +210,48 @@ public class Player : NetworkComponent
             Speed = Speed/2;
         }
 
+        if(other.gameObject.tag == "ItemHealth" && IsServer)
+        {
+            Debug.Log("Collision With ItemHealth");
+            health++;
+            itemID = other.GetComponent<NetworkID>().NetId;
+            MyCore.NetDestroyObject(itemID);
+        }
+
+        if(other.gameObject.tag == "ItemReload" && IsServer)
+        {
+            Debug.Log("Collision With ItemReload");
+            meleeReload.gameObject.SetActive(true);
+            itemID = other.GetComponent<NetworkID>().NetId;
+            MyCore.NetDestroyObject(itemID);
+        }
+
         if(gameMaster.GetComponent<GameMaster>().elapsedTime > 2 && other.gameObject.tag == "MELEE" && IsServer && other.GetComponent<Melee>().myPlayer != this.gameObject)
         {
             Debug.Log("Owch that hurt :(");
-            SendUpdate("HURT", "-1");
+            health--;
             other.gameObject.SetActive(false);
-            yield return new WaitForSeconds(3);
+            if(health <= 0)
+            {
+                score = gameMaster.GetComponent<GameMaster>().elapsedTime;
+                MyCore.NetDestroyObject(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().NetId);
+            }
+            yield return new WaitForSeconds(10);
             Debug.Log("Collision Finish");
             other.gameObject.SetActive(true);
+        }
+
+        if(other.gameObject.tag == "ENEMY" && IsServer)
+        {
+            health--;
+            itemID = other.GetComponent<NetworkID>().NetId;
+            MyCore.NetDestroyObject(itemID);
+            if(health <= 0)
+            {
+                score = gameMaster.GetComponent<GameMaster>().elapsedTime;
+                //send score and id to gamemaster?
+                MyCore.NetDestroyObject(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().NetId);
+            }
         }
     }
 }
