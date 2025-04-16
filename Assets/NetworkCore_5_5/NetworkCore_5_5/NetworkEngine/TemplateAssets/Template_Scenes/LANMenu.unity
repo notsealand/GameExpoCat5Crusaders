@@ -614,10 +614,10 @@ MonoBehaviour:
   DisconnectScreen: {fileID: 0}
   ObjectCounter: 0
   SpawnPrefab:
-  - {fileID: 5738537175877395094, guid: f738bab2be3c42440b8842cf871f84ad, type: 3}
-  - {fileID: -8878986712648052659, guid: 2614f1051dd35964ea19f39c6a9418a4, type: 3}
-  - {fileID: -4418160031860726735, guid: 15cf5dea18279be44a06f566eb85eb48, type: 3}
-  - {fileID: 1106028258960284501, guid: 0c9291e9af5ea124dad5ef68aa9a8fd9, type: 3}
+  - {fileID: -3317481084759915136, guid: fa41f90b9e7eb334faf09aa870197b48, type: 3}
+  - {fileID: 75745175100372566, guid: 8feaa3a0aeffe3a419579f715cfe9af6, type: 3}
+  - {fileID: -8196032965105258664, guid: d96b27d7c211a594e82bd15b6a5996f6, type: 3}
+  - {fileID: -8961948850912788730, guid: 8468b0803f7a0de46b2401f34eac9ee5, type: 3}
   - {fileID: 3827750070175045293, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
   - {fileID: 8587508347038875665, guid: 80b9ef20ddaf84d42a5c1d3dccf489fd, type: 3}
   - {fileID: -6944061503727843147, guid: 25ed76afbec1b54498eacf9acb449637, type: 3}
