@@ -2089,13 +2089,13 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: Ship A
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 21300000, guid: 8adf6a741403c714abb0686971fca80c, type: 3}
     - m_Text: Ship B
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 21300000, guid: 58c1f045dd8c766478a9d6165585451e, type: 3}
     - m_Text: Ship C
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 21300000, guid: 549b3886e83a9a84f81e0b6e405609b7, type: 3}
     - m_Text: Ship D
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 21300000, guid: 75eeb63ad3d920e4b8c453b4caeca6a1, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
