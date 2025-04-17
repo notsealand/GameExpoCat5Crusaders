@@ -122,20 +122,28 @@ public class GameMaster : NetworkComponent
             MyCore.NotifyGameStart();
             while(GameStarted && !GameEnded)
             {
+                //Non-player Spawn Locations. Randomize their selection, making sure to not spawn on the same location.
+                Vector3 Corner1 = new Vector3(-9.3f, 0, 5.36f);
+                Vector3 Corner2 = new Vector3(9.3f, 0, 5.36f);
+                Vector3 Corner3 = new Vector3(-9.3f, 0, -5.36f);
+                Vector3 Corner4 = new Vector3(9.3f, 0, -5.36f);
+                Vector3 SideL = new Vector3(-9, 0, 0);
+                Vector3 SideR = new Vector3(-9, 0, 0);
+
                 if (elapsedTime % 20 == 19) //Spawns ItemSpeed
                 {
                     Quaternion rotation = Quaternion.Euler(60f, 0f, 180f);
-                    GameObject temp = MyCore.NetCreateObject(5, -1, new Vector3(0,0,0), rotation);
+                    GameObject temp = MyCore.NetCreateObject(5, -1, Corner1, rotation);
                 }
                 if (elapsedTime % 20 == 19) //Spawns ItemHealth
                 {
                     Quaternion rotation = Quaternion.Euler(-30f, 0f, 90f);
-                    GameObject temp = MyCore.NetCreateObject(6, -1, new Vector3(2, 0, 2), rotation);
+                    GameObject temp = MyCore.NetCreateObject(6, -1, Corner2, rotation);
                 }
                 if (elapsedTime % 20 == 19) //Spawns ItemReload
                 {
                     Quaternion rotation = Quaternion.Euler(-30f, 0f, 90f);
-                    GameObject temp = MyCore.NetCreateObject(7, -1, new Vector3(-2, 0, -2), rotation);
+                    GameObject temp = MyCore.NetCreateObject(7, -1, Corner3, rotation);
                 }
                 if (elapsedTime % 20 == 14)
                 {
