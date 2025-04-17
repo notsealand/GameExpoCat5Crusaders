@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NETWORK_ENGINE;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameMaster : NetworkComponent
 {
@@ -13,6 +15,7 @@ public class GameMaster : NetworkComponent
     public GameObject P4Start;
     public GameObject ResultsPanel;
     public Vector3 SpawnPosition;
+    public TextMeshProUGUI scoreTextResults;
     public int elapsedScore;
     public int elapsedTime = 0;
     public int playerCount;
@@ -29,12 +32,36 @@ public class GameMaster : NetworkComponent
 				playerManager.transform.GetChild(0).gameObject.SetActive(false);
 			}
 		}
+        
+        if (flag == "SCOREONE" && IsClient)
+        {
+            player1Score = int.Parse(value);
+            Debug.Log("Score 1 recieve");
+        }
+
+        if (flag == "SCORETWO" && IsClient)
+        {
+            player2Score = int.Parse(value);
+            Debug.Log("Score 2 recieve");
+        }
+
+        if (flag == "SCORETHREE" && IsClient)
+        {
+            player3Score = int.Parse(value);
+        }
+
+        if (flag == "SCOREFOUR" && IsClient)
+        {
+            player4Score = int.Parse(value);
+        }
 
         if (flag == "GAMEEND" && IsClient){
 			GameEnded = true;
             Debug.Log("waciassac");
             ResultsPanel = GameObject.FindGameObjectWithTag("Results");
             ResultsPanel.transform.GetChild(0).gameObject.SetActive(true);
+            scoreTextResults.text = player1Score.ToString() + "\n" + player2Score.ToString() + "\n" + player3Score.ToString() + "\n" + player4Score.ToString();
+            ResultsPanel.GetComponent<ScoreResults>().scoreText = scoreTextResults;
 		}
     }
 
@@ -125,7 +152,13 @@ public class GameMaster : NetworkComponent
                     GameEnded = true;
                 }
             }
+            SendUpdate("SCOREONE", player1Score.ToString());
+            SendUpdate("SCORETWO", player2Score.ToString());
+            SendUpdate("SCORETHREE", player3Score.ToString());
+            SendUpdate("SCOREFOUR", player4Score.ToString());
             ResultsPanel.gameObject.SetActive(true);
+            scoreTextResults.text = player1Score.ToString() + "\n" + player2Score.ToString() + "\n" + player3Score.ToString() + "\n" + player4Score.ToString();
+            ResultsPanel.GetComponent<ScoreResults>().scoreText = scoreTextResults;
             SendUpdate("GAMEEND", "1");
             yield return new WaitForSeconds(30);
             MyCore.UI_Quit();

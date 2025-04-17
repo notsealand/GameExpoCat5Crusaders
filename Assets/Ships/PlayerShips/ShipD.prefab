@@ -201,7 +201,7 @@ MonoBehaviour:
   player: {fileID: 5803916222475488794}
   playerButThisOneIsForGettingTheNetID: {fileID: 5803916222475488794}
   meleeReload: {fileID: 0}
-  gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
+  gameMaster: {fileID: 0}
   netIDValue: 0
   score: 0
 --- !u!114 &1229580080048588456

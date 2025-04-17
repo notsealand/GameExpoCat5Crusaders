@@ -935,11 +935,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527975841}
   m_CullTransparentMesh: 0
---- !u!1 &541606793 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1102629217764741850, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
-  m_PrefabInstance: {fileID: 752838285356287139}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &877912946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,6 +1578,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04103054f0e8c24d903f3a639ba7e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1286466889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1305526392640718610, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
+  m_PrefabInstance: {fileID: 752838285356287139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1359916368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,7 +2941,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1102629217764741850, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1305526392640718610, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
       propertyPath: m_IsActive
@@ -2994,7 +2994,7 @@ PrefabInstance:
     - target: {fileID: 5819520200744145172, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
       propertyPath: ResultsPanel
       value: 
-      objectReference: {fileID: 541606793}
+      objectReference: {fileID: 1286466889}
     - target: {fileID: 8254434701805076000, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
       propertyPath: m_Type
       value: 0

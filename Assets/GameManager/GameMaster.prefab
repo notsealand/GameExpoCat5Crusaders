@@ -77,9 +77,14 @@ MonoBehaviour:
   P4Start: {fileID: 0}
   ResultsPanel: {fileID: 1305526392640718610}
   SpawnPosition: {x: 0, y: 0, z: 0}
+  scoreTextResults: {fileID: 801034292901408085}
   elapsedScore: 0
   elapsedTime: 0
-  item: {fileID: 8336334971081246659, guid: ee5dc9c49adf70d4c80c8d137e495019, type: 3}
+  playerCount: 0
+  player1Score: 0
+  player2Score: 0
+  player3Score: 0
+  player4Score: 0
 --- !u!1001 &8057094149926043364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +199,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a879808a74ef5a1478dc22847a85a1e3, type: 3}
+--- !u!114 &801034292901408085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7263554145501795249, guid: a879808a74ef5a1478dc22847a85a1e3, type: 3}
+  m_PrefabInstance: {fileID: 8057094149926043364}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1305526392640718610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9065364685356235254, guid: a879808a74ef5a1478dc22847a85a1e3, type: 3}

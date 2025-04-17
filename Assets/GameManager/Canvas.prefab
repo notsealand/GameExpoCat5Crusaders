@@ -228,6 +228,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 7263554145501795249}
   elapsedScore: 0
+  player1Results: 0
+  player2Results: 0
+  player3Results: 0
+  player4Results: 0
   gameMaster: {fileID: 0}
 --- !u!1 &6961965921408494654
 GameObject:
@@ -423,4 +427,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 7263554145501795249}
   elapsedScore: 0
-  gameMaster: {fileID: 3589521047318129260, guid: 640d65554e4e5bf4288029c4e522fded, type: 3}
+  player1Results: 0
+  player2Results: 0
+  player3Results: 0
+  player4Results: 0
+  gameMaster: {fileID: 0}

@@ -92,6 +92,56 @@ public class Player : NetworkComponent
                 /*Item = GameObject.Find("Item");
                 Destroy(Item.gameObject);*/
                 break;
+
+            case "SCORE":
+                /*if(IsServer)
+                {
+                    Debug.Log("Score Update");
+                    score = gameMaster.GetComponent<GameMaster>().elapsedTime;
+                    switch(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().Owner)
+                    {
+                        case 0:
+                            gameMaster.GetComponent<GameMaster>().player1Score = score;
+                            break;
+                        case 1:
+                            gameMaster.GetComponent<GameMaster>().player2Score = score;
+                            break;
+                        case 2:
+                            gameMaster.GetComponent<GameMaster>().player3Score = score;
+                            break;
+                        case 3:
+                            gameMaster.GetComponent<GameMaster>().player4Score = score;
+                            break;
+                    }
+                    SendUpdate("CHAR", score.ToString());
+                }
+
+                if (IsClient)
+                {
+                    Debug.Log("Score Update Local");
+                    int valueScore = int.Parse(value);
+                    if(valueScore > 1)
+                    {
+                        switch(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().Owner)
+                        {
+                            case 0:
+                                gameMaster.GetComponent<GameMaster>().player1Score = valueScore;
+                                break;
+                            case 1:
+                                gameMaster.GetComponent<GameMaster>().player2Score = valueScore;
+                                break;
+                            case 2:
+                                gameMaster.GetComponent<GameMaster>().player3Score = valueScore;
+                                break;
+                            case 3:
+                                gameMaster.GetComponent<GameMaster>().player4Score = valueScore;
+                                break;
+                        }
+                    }
+                    
+                }*/
+                break;
+                
                 
        }
     }
@@ -132,13 +182,32 @@ public class Player : NetworkComponent
                     }
                 }
 
-                
-                
+                if(gameMaster.GetComponent<GameMaster>().playerCount < 2)
+                {
+                    score = gameMaster.GetComponent<GameMaster>().elapsedTime;
+                    switch(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().Owner)
+                    {
+                        case 0:
+                            gameMaster.GetComponent<GameMaster>().player1Score = score + 10;
+                            break;
+                        case 1:
+                            gameMaster.GetComponent<GameMaster>().player2Score = score + 10;
+                            break;
+                        case 2:
+                            gameMaster.GetComponent<GameMaster>().player3Score = score + 10;
+                            break;
+                        case 3:
+                            gameMaster.GetComponent<GameMaster>().player4Score = score + 10;
+                            break;
+                    }
+                    SendUpdate("SCORE", score.ToString());
+                }
 
                 if(IsDirty)
                 {
                     SendUpdate("CHAR", PName.ToString());
                     SendUpdate("PNAME", PName);
+                    SendUpdate("SCORE", "1");
                     IsDirty = false;
                 }
             }
@@ -249,28 +318,9 @@ public class Player : NetworkComponent
                         gameMaster.GetComponent<GameMaster>().player4Score = score;
                         break;
                 }
+                SendUpdate("SCORE", score.ToString());
                 MyCore.NetDestroyObject(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().NetId);
                 gameMaster.GetComponent<GameMaster>().playerCount--;
-            }
-            if(gameMaster.GetComponent<GameMaster>().playerCount < 2)
-            {
-                score = gameMaster.GetComponent<GameMaster>().elapsedTime;
-                score = score + 10; //Winner bonus
-                switch(playerButThisOneIsForGettingTheNetID.GetComponent<NetworkID>().Owner)
-                {
-                    case 0:
-                        gameMaster.GetComponent<GameMaster>().player1Score = score;
-                        break;
-                    case 1:
-                        gameMaster.GetComponent<GameMaster>().player2Score = score;
-                        break;
-                    case 2:
-                        gameMaster.GetComponent<GameMaster>().player3Score = score;
-                        break;
-                    case 3:
-                        gameMaster.GetComponent<GameMaster>().player4Score = score;
-                        break;
-                }
             }
             yield return new WaitForSeconds(10);
             Debug.Log("Collision Finish");
