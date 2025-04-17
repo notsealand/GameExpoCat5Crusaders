@@ -6855,8 +6855,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1259637657}
-  - component: {fileID: 1259637656}
   - component: {fileID: 1259637658}
+  - component: {fileID: 1259637656}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -6875,7 +6875,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -6987,6 +6987,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04103054f0e8c24d903f3a639ba7e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot1: {fileID: 8300000, guid: e1b5ebdc72a46714f978f387402ebde2, type: 3}
+  slot2: {fileID: 8300000, guid: 3feff3d4792240740bd55a2485ee343b, type: 3}
+  slot3: {fileID: 8300000, guid: 045fee799f5e3c34c8edadee50c39baa, type: 3}
+  slot4: {fileID: 8300000, guid: dcb5aa14a25542d44a484282b36e40cb, type: 3}
+  slot5: {fileID: 8300000, guid: 5554ae5f63b6b34469c8e0f3eb1ec99d, type: 3}
 --- !u!1 &1267921600
 GameObject:
   m_ObjectHideFlags: 0

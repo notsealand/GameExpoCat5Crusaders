@@ -9,6 +9,16 @@ public class AudioHandler : MonoBehaviour
     //Then play a random audio from folder MUSIC or OPTIONAL during the match
     //Once the game ends, stop the random audio
 
+    [SerializeField]
+    AudioClip slot1;
+    [SerializeField]
+    AudioClip slot2;
+    [SerializeField]
+    AudioClip slot3;
+    [SerializeField]
+    AudioClip slot4;
+    [SerializeField]
+    AudioClip slot5;
 
     // Start is called before the first frame update
     void Start()

@@ -5,6 +5,7 @@ using NETWORK_ENGINE;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class GameMaster : NetworkComponent
 {
     public bool GameStarted = false;
@@ -83,6 +84,7 @@ public class GameMaster : NetworkComponent
             {
                 players = GameObject.FindObjectsOfType<NPM>();
                 tempGameStarted = true;
+                //Play Lobbying sound clip slot1
 
                 foreach (NPM n in players)
                 {
@@ -122,6 +124,31 @@ public class GameMaster : NetworkComponent
             MyCore.NotifyGameStart();
             while(GameStarted && !GameEnded)
             {
+                //play the audio clip "Lobbying"
+                //Randomly pick a number between 2 and 5
+                int songRNG = Random.Range(2, 6);
+                switch (songRNG)
+                {
+                    case 2:
+                        //play music slot2 from AudioHandler
+                        //gameObject.find("Music").GetComponent<AudioSource>().clip = slot2;
+                        break;
+                    case 3:
+                        //play music slot3 from AudioHandler                    
+                        break;
+                    case 4:
+                        //play music slot4 from AudioHandler
+                        break;
+                    case 5:
+                        //play music slot5 from AudioHandler
+                        break;
+                    default:
+                        break;
+                }
+
+                //GameObject.Find("Music").GetComponent<AudioSource>().clip = Resources.Load("Lobbying") as AudioClip;
+                //GameObject.Find("Music").GetComponent<AudioSource>().Play();
+
                 //Non-player Spawn Locations. Randomize their selection, making sure to not spawn on the same location.
                 Vector3 Corner1 = new Vector3(-9.3f, 0, 5.36f);
                 Vector3 Corner2 = new Vector3(9.3f, 0, 5.36f);
