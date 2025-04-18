@@ -2144,7 +2144,7 @@ MonoBehaviour:
   IsConnected: 0
   AppNumber: 0
   conCounter: 0
-  IP: 127.0.0.1
+  IP: 
   PortNumber: 9000
   MaxConnections: 0
   MasterTimer: 0.05
