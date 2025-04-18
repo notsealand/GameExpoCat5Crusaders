@@ -10,15 +10,36 @@ public class AudioHandler : MonoBehaviour
     //Once the game ends, stop the random audio
 
     [SerializeField]
-    AudioClip slot1;
+    AudioClip slot1; //"Lobbying"
+    public AudioClip GetSlot1()
+    {
+        return slot1;
+    }
+
     [SerializeField]
-    AudioClip slot2;
+    AudioClip slot2; //"Battle"
+    public AudioClip GetSlot2()
+    {
+        return slot2;
+    }
     [SerializeField]
-    AudioClip slot3;
+    AudioClip slot3; //"BeSmart"
+    public AudioClip GetSlot3()
+    {
+        return slot3;
+    }
     [SerializeField]
-    AudioClip slot4;
+    AudioClip slot4; //"tbhidek"
+    public AudioClip GetSlot4()
+    {
+        return slot4;
+    }
     [SerializeField]
-    AudioClip slot5;
+    AudioClip slot5; //"Trance 009"
+    public AudioClip GetSlot5()
+    {
+        return slot5;
+    }
 
     // Start is called before the first frame update
     void Start()

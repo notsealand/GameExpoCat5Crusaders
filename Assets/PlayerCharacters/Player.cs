@@ -30,6 +30,8 @@ public class Player : NetworkComponent
     public GameObject gameMaster;
     public int netIDValue;
     public int score;
+    private AudioHandler audioHandler;
+    private AudioSource audioSource;
 
     public override void HandleMessage(string flag, string value)
     {
@@ -226,6 +228,20 @@ public class Player : NetworkComponent
     void Start()
     {
         MyRig = this.GetComponent<Rigidbody>();
+
+        //Music
+        /*
+         * GameObject musicObject = GameObject.Find("Music");
+        audioHandler = musicObject.GetComponent<AudioHandler>();
+        audioSource = musicObject.GetComponent<AudioSource>();
+        */
+        //audioHandler = FindObjectOfType<AudioHandler>();
+        //audioSource = GetComponent<AudioSource>();
+        //GameObject.Find("Music").GetComponent<AudioSource>().clip = Resources.Load("Lobbying") as AudioClip;
+        //GameObject.Find("Music").GetComponent<AudioSource>().Play();
+        //end the audio clip "Lobbying"
+        //Randomly pick a number between 2 and 5
+
     }
 
     public void Mover(InputAction.CallbackContext context)

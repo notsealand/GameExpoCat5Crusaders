@@ -4,6 +4,7 @@ using UnityEngine;
 using NETWORK_ENGINE;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem.LowLevel;
 
 
 public class GameMaster : NetworkComponent
@@ -24,6 +25,11 @@ public class GameMaster : NetworkComponent
     public int player2Score;
     public int player3Score;
     public int player4Score;
+
+    //AUDIO
+    private AudioHandler audioHandler;
+    private AudioSource audioSource;
+
     public override void HandleMessage(string flag, string value)
     {
         if (flag == "GAMESTART" && IsClient){
@@ -33,7 +39,37 @@ public class GameMaster : NetworkComponent
 				playerManager.transform.GetChild(0).gameObject.SetActive(false);
 			}
 		}
-        
+        //=====MUSIC=====
+        if (flag == "SONGSTOP" && IsClient){
+            //if (audioSource.isPlaying){ //Check if music is already playing
+                audioSource.Stop();
+            //} //End if
+        } //End if
+        if (flag == "SONG2" && IsClient){
+            if (!audioSource.isPlaying){ //Check if music is already playing
+                audioSource.clip = audioHandler.GetSlot2();
+                audioSource.Play();
+            } //End if
+        } //End if
+        if (flag == "SONG3" && IsClient){
+            if (!audioSource.isPlaying){ //Check if music is already playing
+                audioSource.clip = audioHandler.GetSlot3();
+                audioSource.Play();
+            } //End if
+        } //End if
+        if (flag == "SONG4" && IsClient){
+            if (!audioSource.isPlaying){ //Check if music is already playing
+                audioSource.clip = audioHandler.GetSlot4();
+                audioSource.Play();
+            } //End if
+        } //End if
+        if (flag == "SONG5" && IsClient){
+            if (!audioSource.isPlaying){ //Check if music is already playing
+                audioSource.clip = audioHandler.GetSlot5();
+                audioSource.Play();
+            } //End if
+        } //End if
+        //=====END MUSIC=====
         if (flag == "SCOREONE" && IsClient)
         {
             player1Score = int.Parse(value);
@@ -84,7 +120,6 @@ public class GameMaster : NetworkComponent
             {
                 players = GameObject.FindObjectsOfType<NPM>();
                 tempGameStarted = true;
-                //Play Lobbying sound clip slot1
 
                 foreach (NPM n in players)
                 {
@@ -119,36 +154,33 @@ public class GameMaster : NetworkComponent
                 MyCore.NetCreateObject(9, -1, SpawnPosition, Quaternion.identity);
                 playerCount++;
 			}
-
+            
             SendUpdate("GAMESTART", "1");
             MyCore.NotifyGameStart();
-            while(GameStarted && !GameEnded)
+
+            SendUpdate("SONGSTOP", "1"); //Stop Lobbying music in client
+            //=====MUSIC DICEROLLER=====
+            int songRNG = Random.Range(2, 6);
+            switch (songRNG)
             {
-                //play the audio clip "Lobbying"
-                //Randomly pick a number between 2 and 5
-                int songRNG = Random.Range(2, 6);
-                switch (songRNG)
-                {
-                    case 2:
-                        //play music slot2 from AudioHandler
-                        //gameObject.find("Music").GetComponent<AudioSource>().clip = slot2;
-                        break;
-                    case 3:
-                        //play music slot3 from AudioHandler                    
-                        break;
-                    case 4:
-                        //play music slot4 from AudioHandler
-                        break;
-                    case 5:
-                        //play music slot5 from AudioHandler
-                        break;
-                    default:
-                        break;
-                }
-
-                //GameObject.Find("Music").GetComponent<AudioSource>().clip = Resources.Load("Lobbying") as AudioClip;
-                //GameObject.Find("Music").GetComponent<AudioSource>().Play();
-
+                case 2:
+                    SendUpdate("SONG2", "1"); //play music slot2 from AudioHandler
+                    break;
+                case 3:
+                    SendUpdate("SONG3", "1"); //play music slot3 from AudioHandler                    
+                    break;
+                case 4:
+                    SendUpdate("SONG4", "1"); //play music slot4 from AudioHandler
+                    break;
+                case 5:
+                    SendUpdate("SONG5", "1"); //play music slot5 from AudioHandler
+                    break;
+                default:
+                    break;
+            } //End switch songRNG
+            //=====END MUSIC DICEROLLER=====
+            while (GameStarted && !GameEnded)
+            {
                 //Non-player Spawn Locations. Randomize their selection, making sure to not spawn on the same location.
                 Vector3 Corner1 = new Vector3(-9.3f, 0, 5.36f);
                 Vector3 Corner2 = new Vector3(9.3f, 0, 5.36f);
@@ -205,6 +237,12 @@ public class GameMaster : NetworkComponent
     void Start()
     {
         elapsedScore = Random.Range(1, 101);
+
+        //Music
+        GameObject musicObject = GameObject.Find("Music");
+        audioHandler = musicObject.GetComponent<AudioHandler>();
+        audioSource = musicObject.GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
