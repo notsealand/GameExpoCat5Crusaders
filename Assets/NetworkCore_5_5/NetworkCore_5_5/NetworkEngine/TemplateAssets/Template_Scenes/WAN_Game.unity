@@ -727,7 +727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00008177797}
+  m_AnchoredPosition: {x: 0, y: -0.000014771037}
   m_SizeDelta: {x: 0, y: 810.43}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &68152915
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 378318156}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999815
+  m_Size: 0.99999356
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15076,7 +15076,7 @@ MonoBehaviour:
   gameCore: {fileID: 2124650039}
   localGameID: 
   gameCounter: 0
-  maxGameTime: 60
+  maxGameTime: 240
   gameRoomContent: {fileID: 68152913}
   gameNameInput: {fileID: 1642041172}
   createGameButton: {fileID: 211073371}
