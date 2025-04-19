@@ -727,7 +727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0006079557}
+  m_AnchoredPosition: {x: 0, y: 0.000073581294}
   m_SizeDelta: {x: 0, y: 810.43}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &68152915
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 378318156}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999887
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15003,8 +15003,10 @@ MonoBehaviour:
   - {fileID: 8587508347038875665, guid: 80b9ef20ddaf84d42a5c1d3dccf489fd, type: 3}
   - {fileID: -6944061503727843147, guid: 25ed76afbec1b54498eacf9acb449637, type: 3}
   - {fileID: -3602853093271451655, guid: e8bd5814cccb7104dbe4b7b2bea4ad84, type: 3}
-  - {fileID: 2243379250025099068, guid: ef8a8ea358fbbea4a98478e38bc45f84, type: 3}
+  - {fileID: 612438247849463600, guid: cd6928002a9069d4a977514836b2d50e, type: 3}
   - {fileID: 9149251800677700981, guid: b0ad32b4f2c26654092c035d6b1136f1, type: 3}
+  - {fileID: 1140136946125082696, guid: 577a97e26e6751948af7027a80891bdb, type: 3}
+  - {fileID: 7273674597287779821, guid: 2122585ff76213b4e8b4e15a6d3c8f25, type: 3}
   NetworkPlayerManager: {fileID: 8924587938452622135, guid: 6a56e5624ffec214faff8c1ff72e434c, type: 3}
   DefaultReturnScene: 0
 --- !u!4 &2124650040
