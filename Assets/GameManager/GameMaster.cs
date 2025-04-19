@@ -16,6 +16,7 @@ public class GameMaster : NetworkComponent
     public GameObject P3Start;
     public GameObject P4Start;
     public GameObject ResultsPanel;
+    //public GameObject[] Levels;
     public Vector3 SpawnPosition;
     public TextMeshProUGUI scoreTextResults;
     public int elapsedScore;
@@ -70,6 +71,37 @@ public class GameMaster : NetworkComponent
             } //End if
         } //End if
         //=====END MUSIC=====
+        //=====LVL=====
+        /*
+        if (flag == "LVL1" && IsClient)
+        {
+            //Debug.Log("LVL1flagged", Levels[0]);
+            //GameObject.Find("LVL1").SetActive(true);
+            //GameObject.Find("LVL2").SetActive(false);
+            //GameObject.Find("LVL3").SetActive(false);
+            Levels[0].SetActive(true);
+            Debug.Log("LVL1flagged");
+        }
+        if (flag == "LVL2" && IsClient)
+        {
+            //Debug.Log("LVL2flagged", Levels[1]);
+            //GameObject.Find("LVL2").SetActive(true);
+            //GameObject.Find("LVL1").SetActive(false);
+            //GameObject.Find("LVL3").SetActive(false);
+            Levels[1].SetActive(true);
+            Debug.Log("LVL2flagged");
+        }
+        if (flag == "LVL3" && IsClient)
+        {
+            //Debug.Log("LVL3flagged", Levels[2]);
+            //GameObject.Find("LVL3").SetActive(true);
+            //GameObject.Find("LVL1").SetActive(false);
+            //GameObject.Find("LVL2").SetActive(false);
+            Levels[2].SetActive(true);
+            Debug.Log("LVL3flagged");
+        }
+        //=====END LVL=====
+        */
         if (flag == "SCOREONE" && IsClient)
         {
             player1Score = int.Parse(value);
@@ -179,6 +211,27 @@ public class GameMaster : NetworkComponent
                     break;
             } //End switch songRNG
             //=====END MUSIC DICEROLLER=====
+            //=====LVL=====
+            /*
+            int lvlRNG = Random.Range(1, 4);
+            switch (lvlRNG)
+            {
+                case 1:
+                    SendUpdate("LVL1", "1");
+                    Debug.Log("LVL1picked");
+                    break;
+                case 2:
+                    SendUpdate("LVL2", "1");
+                    Debug.Log("LVL2picked");
+                    break;
+                case 3:
+                    SendUpdate("LVL3", "1");
+                    Debug.Log("LVL3picked");
+                    break;
+                default:
+                    break;
+            } //End switch lvlRNG
+            */
             while (GameStarted && !GameEnded)
             {
                 //Non-player Spawn Locations. Randomize their selection, making sure to not spawn on the same location.
@@ -204,13 +257,13 @@ public class GameMaster : NetworkComponent
                     Quaternion rotation = Quaternion.Euler(-30f, 0f, 90f);
                     GameObject temp = MyCore.NetCreateObject(7, -1, Corner3, rotation);
                 }
-                if (elapsedTime % 20 == 14)
+                if (elapsedTime % 20 == 14) //NPCB
                 {
-                    GameObject temp = MyCore.NetCreateObject(8, -1, new Vector3(10,0,2), this.transform.rotation);
+                    GameObject temp = MyCore.NetCreateObject(10, -1, new Vector3(10,0,2), this.transform.rotation);
                 }
-                if (elapsedTime % 20 == 4)
+                if (elapsedTime % 20 == 4) //NPCC
                 {
-                    GameObject temp = MyCore.NetCreateObject(8, -1, new Vector3(-10,0,-2), this.transform.rotation);
+                    GameObject temp = MyCore.NetCreateObject(11, -1, new Vector3(-10,0,-2), this.transform.rotation);
                 }
                 yield return new WaitForSeconds(1);
                 elapsedTime++;
@@ -243,6 +296,24 @@ public class GameMaster : NetworkComponent
         audioHandler = musicObject.GetComponent<AudioHandler>();
         audioSource = musicObject.GetComponent<AudioSource>();
 
+        //Levels
+        /*
+        Levels = new GameObject[3];
+        Levels[0] = GameObject.Find("LVL1");
+        Levels[0].SetActive(false);
+        Debug.Log("LVL1found");
+        Levels[1] = GameObject.Find("LVL2");
+        Levels[1].SetActive(false);
+        Debug.Log("LVL2found");
+        Levels[2] = GameObject.Find("LVL3");
+        Levels[2].SetActive(false);
+        Debug.Log("LVL3found");
+        */
+        /*
+        GameObject.Find("LVL1").SetActive(false);
+        GameObject.Find("LVL2").SetActive(false);
+        GameObject.Find("LVL3").SetActive(false);
+        */
     }
 
     // Update is called once per frame
